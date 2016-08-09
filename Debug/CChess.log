@@ -1,18 +1,20 @@
-﻿Build started 8/9/2016 9:42:31 PM.
+﻿Build started 8/10/2016 1:46:10 AM.
      1>Project "c:\Users\Ali J\documents\visual studio 2013\Projects\CChess\CChess\CChess.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         D:\Visual Studio\VS2013 installed version\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt cChess.cpp init.cpp
+         D:\Visual Studio\VS2013 installed version\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt bitBoards.cpp cChess.cpp init.cpp
          cChess.cpp
+         bitBoards.cpp
          Generating Code...
          Compiling...
          init.cpp
          Generating Code...
        Link:
-         D:\Visual Studio\VS2013 installed version\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"c:\users\ali j\documents\visual studio 2013\Projects\CChess\Debug\CChess.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"c:\users\ali j\documents\visual studio 2013\Projects\CChess\Debug\CChess.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"c:\users\ali j\documents\visual studio 2013\Projects\CChess\Debug\CChess.lib" /MACHINE:X86 Debug\cChess.obj
+         D:\Visual Studio\VS2013 installed version\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"c:\users\ali j\documents\visual studio 2013\Projects\CChess\Debug\CChess.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"c:\users\ali j\documents\visual studio 2013\Projects\CChess\Debug\CChess.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"c:\users\ali j\documents\visual studio 2013\Projects\CChess\Debug\CChess.lib" /MACHINE:X86 Debug\bitBoards.obj
+         Debug\cChess.obj
          Debug\init.obj
          CChess.vcxproj -> c:\users\ali j\documents\visual studio 2013\Projects\CChess\Debug\CChess.exe
      1>Done Building Project "c:\Users\Ali J\documents\visual studio 2013\Projects\CChess\CChess\CChess.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.97
+Time Elapsed 00:00:00.76

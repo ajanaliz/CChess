@@ -64,6 +64,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="bitBoards.cpp" />
     <ClCompile Include="cChess.cpp" />
     <ClCompile Include="init.cpp" />
   </ItemGroup>
