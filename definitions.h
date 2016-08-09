@@ -98,12 +98,15 @@ typedef struct
 #define SQ120(sq64) (Sq64ToSq120[(sq64)])
 #define POP(b) PopBit(b)
 #define CNT(b) CountBits(b)
+#define CLRBIT(bb,sq) ((bb) &= ClearMask[(sq)])
+#define SETBIT(bb,sq) ((bb) |= SetMask[(sq)])
 
 /* GLOBALS */
 
 extern int Sq120ToSq64[BOARD_SQUARE_NUM];
 extern int Sq64ToSq120[64];
-
+extern U64 SetMask[64];
+extern U64 ClearMask[64];
 
 /* FUNCTIONS */
 

@@ -67,6 +67,7 @@
     <ClCompile Include="bitBoards.cpp" />
     <ClCompile Include="cChess.cpp" />
     <ClCompile Include="init.cpp" />
+    <ClCompile Include="keyGen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="definitions.h" />
