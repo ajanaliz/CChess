@@ -65,6 +65,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="cChess.cpp" />
+    <ClCompile Include="init.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="definitions.h" />
