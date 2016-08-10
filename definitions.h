@@ -103,6 +103,12 @@ typedef struct
 #define CLRBIT(bb,sq) ((bb) &= ClearMask[(sq)])
 #define SETBIT(bb,sq) ((bb) |= SetMask[(sq)])
 
+
+#define IsBQ(p) (PieceBishopQueen[(p)])
+#define IsRQ(p) (PieceRookQueen[(p)])
+#define IsKn(p) (PieceKnight[(p)])
+#define IsKi(p) (PieceKing[(p)])
+
 /* GLOBALS */
 
 extern int Sq120ToSq64[BOARD_SQUARE_NUM];
@@ -126,6 +132,12 @@ extern int PiecePawn[13];
 
 extern int FilesBrd[BOARD_SQUARE_NUM];
 extern int RanksBrd[BOARD_SQUARE_NUM];
+
+extern int PieceKnight[13];
+extern int PieceKing[13];
+extern int PieceRookQueen[13];
+extern int PieceBishopQueen[13];
+extern int PieceSlides[13];
 
 /* FUNCTIONS */
 
