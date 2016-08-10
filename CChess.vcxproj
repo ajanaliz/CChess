@@ -66,6 +66,8 @@
   <ItemGroup>
     <ClCompile Include="bitBoards.cpp" />
     <ClCompile Include="cChess.cpp" />
+    <ClCompile Include="chessBoard.cpp" />
+    <ClCompile Include="data.cpp" />
     <ClCompile Include="init.cpp" />
     <ClCompile Include="keyGen.cpp" />
   </ItemGroup>

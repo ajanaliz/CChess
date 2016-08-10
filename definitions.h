@@ -26,6 +26,7 @@ typedef unsigned long long U64;
 
 #define MAXGAMEMOVES 2048
 
+#define START_FEN  "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
 
 enum { EMPTY, wP, wN, wB, wR, wQ, wK, bP, bN, bB, bR, bQ, bK };
 enum { FILE_A, FILE_B, FILE_C, FILE_D, FILE_E, FILE_F, FILE_G, FILE_H, FILE_NONE };
@@ -62,7 +63,7 @@ typedef struct
 	int pieces[BOARD_SQUARE_NUM];
 	U64 pawns[3];
 
-	int kingSQ[2];
+	int KingSq[2];
 
 	int side;
 	int enPas;
@@ -76,9 +77,10 @@ typedef struct
 	U64 posKey;
 
 	int pieceNum[13];
-	int bigPieceNum[3];
-	int majorPieceNum[3];
-	int minorPieceNum[3];
+	int bigPieceNum[2];
+	int majorPieceNum[2];
+	int minorPieceNum[2];
+	int material[2];
 
 	GAME_MOVE history[MAXGAMEMOVES];
 
@@ -107,17 +109,43 @@ extern int Sq120ToSq64[BOARD_SQUARE_NUM];
 extern int Sq64ToSq120[64];
 extern U64 SetMask[64];
 extern U64 ClearMask[64];
+extern U64 PieceKeys[13][120];
+extern U64 SideKey;
+extern U64 CastleKeys[16];
+extern char PceChar[];
+extern char SideChar[];
+extern char RankChar[];
+extern char FileChar[];
+
+extern int PieceBig[13];
+extern int PieceMaj[13];
+extern int PieceMin[13];
+extern int PieceVal[13];
+extern int PieceCol[13];
+extern int PiecePawn[13];
+
+extern int FilesBrd[BOARD_SQUARE_NUM];
+extern int RanksBrd[BOARD_SQUARE_NUM];
 
 /* FUNCTIONS */
 
 // init.cpp
-extern void allInit();
+extern void AllInit();
 
-// bitboards.c
+// bitBoards.cpp
 extern void PrintBitBoard(U64 bb);
 extern int PopBit(U64 *bb);
 extern int CountBits(U64 b);
 
+// keyGen.cpp
+extern U64 GeneratePosKey(const CHESS_BOARD *pos);
+
+// chessBoard.cpp
+extern void ResetBoard(CHESS_BOARD *pos);
+extern int ParseFen(char *fen, CHESS_BOARD *pos);
+extern void PrintBoard(const CHESS_BOARD *pos);
+extern void UpdateListsMaterial(CHESS_BOARD *pos);
+extern int CheckBoard(const CHESS_BOARD *pos);
 
 #endif // !DEFS_H
 

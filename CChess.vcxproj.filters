@@ -27,6 +27,12 @@
     <ClCompile Include="keyGen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="chessBoard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="data.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="definitions.h">
