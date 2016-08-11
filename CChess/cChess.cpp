@@ -8,7 +8,6 @@ int main()
 
 	U64 playBitBoard = 0ULL;
 	CHESS_BOARD board[1];
-	PrintBitBoard(playBitBoard);
 
 	printf("%d", CNT(playBitBoard));
 

@@ -36,6 +36,15 @@
     <ClCompile Include="attack.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="chessIO.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="moveGenarator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="validate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="definitions.h">
