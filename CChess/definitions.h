@@ -49,6 +49,12 @@ enum { FALSE, TRUE };
 enum { WKCA = 1, WQCA = 2, BKCA = 4, BQCA = 8 };
 
 typedef struct {
+	int move;
+	int score;
+} MOVE;
+
+
+typedef struct {
 	
 	int move;
 	int castlePerm;
@@ -158,6 +164,9 @@ extern int ParseFen(char *fen, CHESS_BOARD *pos);
 extern void PrintBoard(const CHESS_BOARD *pos);
 extern void UpdateListsMaterial(CHESS_BOARD *pos);
 extern int CheckBoard(const CHESS_BOARD *pos);
+
+// attack.cpp
+extern int SqAttacked(const int sq, const int side, const CHESS_BOARD *pos);
 
 #endif // !DEFS_H
 

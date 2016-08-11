@@ -1,13 +1,13 @@
-﻿Build started 8/10/2016 11:49:30 PM.
+﻿Build started 8/11/2016 3:46:28 AM.
      1>Project "C:\Users\Ali J\documents\visual studio 2013\Projects\CChess\CChess\CChess.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          D:\Visual Studio\VS2013 installed version\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt attack.cpp bitBoards.cpp cChess.cpp chessBoard.cpp data.cpp init.cpp keyGen.cpp
-         data.cpp
          attack.cpp
          Generating Code...
          Compiling...
          keyGen.cpp
          init.cpp
+         data.cpp
          chessBoard.cpp
          cChess.cpp
          bitBoards.cpp
@@ -25,4 +25,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.93
+Time Elapsed 00:00:02.00
