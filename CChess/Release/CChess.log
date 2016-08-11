@@ -1,5 +1,5 @@
-﻿Build started 8/11/2016 9:05:50 PM.
-     1>Project "C:\Users\Ali J\documents\visual studio 2013\Projects\CChess\CChess\CChess.vcxproj" on node 2 (Rebuild target(s)).
+﻿Build started 8/12/2016 12:41:19 AM.
+     1>Project "C:\Users\Ali J\documents\visual studio 2013\Projects\CChess\CChess\CChess.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          D:\Visual Studio\VS2013 installed version\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt attack.cpp bitBoards.cpp cChess.cpp chessBoard.cpp chessIO.cpp data.cpp init.cpp keyGen.cpp moveGenarator.cpp validate.cpp
          attack.cpp
@@ -26,8 +26,8 @@
          Generating code
          Finished generating code
          CChess.vcxproj -> C:\Users\Ali J\documents\visual studio 2013\Projects\CChess\Release\CChess.exe
-     1>Done Building Project "C:\Users\Ali J\documents\visual studio 2013\Projects\CChess\CChess\CChess.vcxproj" (Rebuild target(s)).
+     1>Done Building Project "C:\Users\Ali J\documents\visual studio 2013\Projects\CChess\CChess\CChess.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.74
+Time Elapsed 00:00:01.09

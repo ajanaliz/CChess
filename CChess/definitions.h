@@ -26,6 +26,7 @@ typedef unsigned long long U64;
 
 #define MAXGAMEMOVES 2048
 #define MAXPOSITIONMOVES 256
+#define MAXDEPTH 64
 
 #define START_FEN  "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
 
@@ -62,6 +63,25 @@ typedef struct {
 	int count;
 } MOVELIST;
 
+
+enum { HFNONE, HFALPHA, HFBETA, HFEXACT };
+
+typedef struct {
+	U64 posKey;
+	int move;
+	int score;
+	int depth;
+	int flags;
+} HASHENTRY;
+
+typedef struct {
+	HASHENTRY *pTable;
+	int numEntries;
+	int newWrite;
+	int overWrite;
+	int hit;
+	int cut;
+} HASHTABLE;
 
 typedef struct {
 	
@@ -101,6 +121,13 @@ typedef struct
 
 	//piece list
 	int pList[13][10];
+
+	HASHTABLE HashTable[1];
+	int PvArray[MAXDEPTH];
+
+	int searchHistory[13][BOARD_SQUARE_NUM];
+	int searchKillers[2][MAXDEPTH];
+
 
 	
 
@@ -205,7 +232,7 @@ extern int SqAttacked(const int sq, const int side, const CHESS_BOARD *pos);
 // chessIO.cpp
 extern char *PrMove(const int move);
 extern char *PrSq(const int sq);
-
+extern void PrintMoveList(const MOVELIST *list);
 // validate.cpp
 extern int SqOnBoard(const int sq);
 extern int SideValid(const int side);
@@ -213,6 +240,8 @@ extern int FileRankValid(const int fr);
 extern int PieceValidEmpty(const int pce);
 extern int PieceValid(const int pce);
 
+// moveGenerator.cpp
+extern void GenerateAllMoves(const CHESS_BOARD *pos, MOVELIST *list);
 
 #endif // !DEFS_H
 
