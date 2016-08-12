@@ -250,6 +250,7 @@ int MakeMove(CHESS_BOARD *pos, int move) {
 
 
 	if (SqAttacked(pos->KingSq[side], pos->side, pos))  {
+		printf("no");
 		TakeMove(pos);
 		return FALSE;
 	}
@@ -327,4 +328,53 @@ void TakeMove(CHESS_BOARD *pos) {
 
 	ASSERT(CheckBoard(pos));
 
+}
+
+
+void MakeNullMove(CHESS_BOARD *pos) {
+
+	ASSERT(CheckBoard(pos));
+	ASSERT(!SqAttacked(pos->KingSq[pos->side], pos->side ^ 1, pos));
+
+	pos->ply++;
+	pos->history[pos->historyPly].posKey = pos->posKey;
+
+	if (pos->enPas != NO_SQ) HASH_EP;
+
+	pos->history[pos->historyPly].move = NOMOVE;
+	pos->history[pos->historyPly].fiftyMove = pos->fiftyMove;
+	pos->history[pos->historyPly].enPas = pos->enPas;
+	pos->history[pos->historyPly].castlePerm = pos->castlePerm;
+	pos->enPas = NO_SQ;
+
+	pos->side ^= 1;
+	pos->historyPly++;
+	HASH_SIDE;
+
+	ASSERT(CheckBoard(pos));
+	ASSERT(pos->historyPly >= 0 && pos->historyPly < MAXGAMEMOVES);
+	ASSERT(pos->ply >= 0 && pos->ply < MAXDEPTH);
+
+	return;
+} // MakeNullMove
+
+void TakeNullMove(CHESS_BOARD *pos) {
+	ASSERT(CheckBoard(pos));
+
+	pos->historyPly--;
+	pos->ply--;
+
+	if (pos->enPas != NO_SQ) HASH_EP;
+
+	pos->castlePerm = pos->history[pos->historyPly].castlePerm;
+	pos->fiftyMove = pos->history[pos->historyPly].fiftyMove;
+	pos->enPas = pos->history[pos->historyPly].enPas;
+
+	if (pos->enPas != NO_SQ) HASH_EP;
+	pos->side ^= 1;
+	HASH_SIDE;
+
+	ASSERT(CheckBoard(pos));
+	ASSERT(pos->historyPly >= 0 && pos->historyPly < MAXGAMEMOVES);
+	ASSERT(pos->ply >= 0 && pos->ply < MAXDEPTH);
 }

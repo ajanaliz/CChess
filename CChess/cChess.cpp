@@ -6,22 +6,31 @@ int main()
 {
 	AllInit();
 
-	U64 playBitBoard = 0ULL;
 	CHESS_BOARD board[1];
 	MOVELIST list[1];
-	printf("%d", CNT(playBitBoard));
 
 	ParseFen(START_FEN, board);
+	GenerateAllMoves(board, list);
 	PrintBoard(board);
 
-	ASSERT(CheckBoard(board));
+	int moveNum = 0;
+	int move = 0;
+	PrintBoard(board);
+	getchar();
 
-	GenerateAllMoves(board, list);
-	PrintMoveList(list);
-	getchar();
-	getchar();
-	getchar();
-	getchar();
+	for (moveNum = 0; moveNum < list->count; ++moveNum)
+	{
+		move = list->moves[moveNum].move;
+		if (!MakeMove(board,move))
+			continue;
+		PrintBoard(board);
+		TakeMove(board);
+		printf("\nMADE: %s\n", PrMove(move));
+		PrintBoard(board);
+		getchar();
+	}
+
+	printf("\n\nDone!");
 	getchar();
 	getchar();
 	return 0;

@@ -246,6 +246,8 @@ extern void GenerateAllMoves(const CHESS_BOARD *pos, MOVELIST *list);
 // makemMve.cpp
 extern int MakeMove(CHESS_BOARD *pos, int move);
 extern void TakeMove(CHESS_BOARD *pos);
+extern void MakeNullMove(CHESS_BOARD *pos);
+extern void TakeNullMove(CHESS_BOARD *pos);
 
 #endif // !DEFS_H
 
