@@ -10,25 +10,7 @@ int main()
 	MOVELIST list[1];
 
 	ParseFen(START_FEN, board);
-	GenerateAllMoves(board, list);
-	PrintBoard(board);
-
-	int moveNum = 0;
-	int move = 0;
-	PrintBoard(board);
-	getchar();
-
-	for (moveNum = 0; moveNum < list->count; ++moveNum)
-	{
-		move = list->moves[moveNum].move;
-		if (!MakeMove(board,move))
-			continue;
-		PrintBoard(board);
-		TakeMove(board);
-		printf("\nMADE: %s\n", PrMove(move));
-		PrintBoard(board);
-		getchar();
-	}
+	PerftTest(7, board);
 
 	printf("\n\nDone!");
 	getchar();

@@ -1,38 +1,32 @@
-﻿Build started 8/12/2016 10:40:05 PM.
+﻿Build started 8/13/2016 6:21:47 AM.
      1>Project "C:\Users\Ali J\documents\visual studio 2013\Projects\CChess\CChess\CChess.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         D:\Visual Studio\VS2013 installed version\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt attack.cpp bitBoards.cpp cChess.cpp chessBoard.cpp chessIO.cpp data.cpp init.cpp keyGen.cpp makeMove.cpp moveGenarator.cpp perft.cpp validate.cpp
-         perft.cpp
+         D:\Visual Studio\VS2013 installed version\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt attack.cpp bitBoards.cpp cChess.cpp chessBoard.cpp chessIO.cpp data.cpp evaluate.cpp hashValueTable.cpp init.cpp keyGen.cpp makeMove.cpp moveGenarator.cpp perft.cpp search.cpp util.cpp validate.cpp
+         util.cpp
+     1>c:\program files (x86)\windows kits\8.1\include\um\winbase.h(702): warning C4005: 'INFINITE' : macro redefinition
+                 c:\users\ali j\documents\visual studio 2013\projects\cchess\cchess\definitions.h(37) : see previous definition of 'INFINITE'
+     1>c:\users\ali j\documents\visual studio 2013\projects\cchess\cchess\util.cpp(72): error C3861: 'read': identifier not found
+         search.cpp
          moveGenarator.cpp
-         makeMove.cpp
+         hashValueTable.cpp
+         evaluate.cpp
+         chessIO.cpp
          cChess.cpp
+     1>c:\users\ali j\documents\visual studio 2013\projects\cchess\cchess\cchess.cpp(10): warning C4101: 'list' : unreferenced local variable
          Generating Code...
          Compiling...
          validate.cpp
+         perft.cpp
+         makeMove.cpp
          keyGen.cpp
          init.cpp
          data.cpp
-         chessIO.cpp
          chessBoard.cpp
          bitBoards.cpp
          attack.cpp
          Generating Code...
-       Link:
-         D:\Visual Studio\VS2013 installed version\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Ali J\documents\visual studio 2013\Projects\CChess\Debug\CChess.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Ali J\documents\visual studio 2013\Projects\CChess\Debug\CChess.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Ali J\documents\visual studio 2013\Projects\CChess\Debug\CChess.lib" /MACHINE:X86 Debug\attack.obj
-         Debug\bitBoards.obj
-         Debug\cChess.obj
-         Debug\chessBoard.obj
-         Debug\chessIO.obj
-         Debug\data.obj
-         Debug\init.obj
-         Debug\keyGen.obj
-         Debug\makeMove.obj
-         Debug\moveGenarator.obj
-         Debug\perft.obj
-         Debug\validate.obj
-         CChess.vcxproj -> C:\Users\Ali J\documents\visual studio 2013\Projects\CChess\Debug\CChess.exe
-     1>Done Building Project "C:\Users\Ali J\documents\visual studio 2013\Projects\CChess\CChess\CChess.vcxproj" (Build target(s)).
+     1>Done Building Project "C:\Users\Ali J\documents\visual studio 2013\Projects\CChess\CChess\CChess.vcxproj" (Build target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:00.94
+Time Elapsed 00:00:01.44

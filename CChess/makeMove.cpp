@@ -250,7 +250,6 @@ int MakeMove(CHESS_BOARD *pos, int move) {
 
 
 	if (SqAttacked(pos->KingSq[side], pos->side, pos))  {
-		printf("no");
 		TakeMove(pos);
 		return FALSE;
 	}

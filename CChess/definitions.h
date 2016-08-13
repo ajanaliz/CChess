@@ -2,9 +2,12 @@
 #define DEFS_H
 
 #include "stdlib.h"
+#include "stdio.h"
 
 
-#define DEBUG
+//#define DEBUG
+
+#define MAX_HASH 1024
 
 #ifndef DEBUG
 #define ASSERT(n)
@@ -30,11 +33,16 @@ typedef unsigned long long U64;
 
 #define START_FEN  "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
 
+
+#define INFINITE 30000
+#define ISMATE (INFINITE - MAXDEPTH)
+
 enum { EMPTY, wP, wN, wB, wR, wQ, wK, bP, bN, bB, bR, bQ, bK };
 enum { FILE_A, FILE_B, FILE_C, FILE_D, FILE_E, FILE_F, FILE_G, FILE_H, FILE_NONE };
 enum { RANK_1, RANK_2, RANK_3, RANK_4, RANK_5, RANK_6, RANK_7, RANK_8, RANK_NONE };
 
 enum { WHITE, BLACK, BOTH };
+enum { UCIMODE, XBOARDMODE, CONSOLEMODE };
 enum {
 	A1 = 21, B1, C1, D1, E1, F1, G1, H1,
 	A2 = 31, B2, C2, D2, E2, F2, G2, H2,
@@ -133,6 +141,33 @@ typedef struct
 
 } CHESS_BOARD;
 
+
+typedef struct {
+
+	int starttime;
+	int stoptime;
+	int depth;
+	int timeset;
+	int movestogo;
+
+	long nodes;
+
+	int quit;
+	int stopped;
+
+	float fh;
+	float fhf;
+	int nullCut;
+
+	int GAME_MODE;
+	int POST_THINKING;
+
+} SEARCHINFO;
+
+typedef struct {
+	int UseBook;
+} OPTIONS;
+
 /* GAME MOVE */
 
 /*
@@ -176,6 +211,8 @@ typedef struct
 #define IsKn(p) (PieceKnight[(p)])
 #define IsKi(p) (PieceKing[(p)])
 
+#define MIRROR64(sq) (Mirror64[(sq)])
+
 /* GLOBALS */
 
 extern int Sq120ToSq64[BOARD_SQUARE_NUM];
@@ -206,6 +243,16 @@ extern int PieceRookQueen[13];
 extern int PieceBishopQueen[13];
 extern int PieceSlides[13];
 
+extern int Mirror64[64];
+
+extern U64 FileBBMask[8];
+extern U64 RankBBMask[8];
+
+extern U64 BlackPassedMask[64];
+extern U64 WhitePassedMask[64];
+extern U64 IsolatedMask[64];
+
+
 /* FUNCTIONS */
 
 // init.cpp
@@ -233,6 +280,8 @@ extern int SqAttacked(const int sq, const int side, const CHESS_BOARD *pos);
 extern char *PrMove(const int move);
 extern char *PrSq(const int sq);
 extern void PrintMoveList(const MOVELIST *list);
+extern int ParseMove(char *ptrChar, CHESS_BOARD *pos);
+
 // validate.cpp
 extern int SqOnBoard(const int sq);
 extern int SideValid(const int side);
@@ -242,12 +291,38 @@ extern int PieceValid(const int pce);
 
 // moveGenerator.cpp
 extern void GenerateAllMoves(const CHESS_BOARD *pos, MOVELIST *list);
+extern void GenerateAllCaps(const CHESS_BOARD *pos, MOVELIST *list);
+extern int MoveExists(CHESS_BOARD *pos, const int move);
+extern void InitMvvLva();
 
 // makemMve.cpp
 extern int MakeMove(CHESS_BOARD *pos, int move);
 extern void TakeMove(CHESS_BOARD *pos);
 extern void MakeNullMove(CHESS_BOARD *pos);
 extern void TakeNullMove(CHESS_BOARD *pos);
+
+// perft.cpp
+extern void PerftTest(int depth, CHESS_BOARD *pos);
+
+// search.cpp
+extern void SearchPosition(CHESS_BOARD *pos, SEARCHINFO *info);
+
+// util.cpp
+extern int GetTimeMs();
+extern void ReadInput(SEARCHINFO *info);
+
+// hashValueTable.cpp
+extern void InitHashTable(HASHTABLE *table, const int MB);
+extern void StoreHashEntry(CHESS_BOARD *pos, const int move, int score, const int flags, const int depth);
+extern int ProbeHashEntry(CHESS_BOARD *pos, int *move, int *score, int alpha, int beta, int depth);
+extern int ProbePvMove(const CHESS_BOARD *pos);
+extern int GetPvLine(const int depth, CHESS_BOARD *pos);
+extern void ClearHashTable(CHESS_BOARD *table);
+
+// evaluate.cpp
+extern int EvalPosition(const CHESS_BOARD *pos);
+extern void MirrorEvalTest(CHESS_BOARD *pos);
+
 
 #endif // !DEFS_H
 

@@ -72,11 +72,15 @@
     <ClCompile Include="chessBoard.cpp" />
     <ClCompile Include="chessIO.cpp" />
     <ClCompile Include="data.cpp" />
+    <ClCompile Include="evaluate.cpp" />
+    <ClCompile Include="hashValueTable.cpp" />
     <ClCompile Include="init.cpp" />
     <ClCompile Include="keyGen.cpp" />
     <ClCompile Include="makeMove.cpp" />
     <ClCompile Include="moveGenarator.cpp" />
     <ClCompile Include="perft.cpp" />
+    <ClCompile Include="search.cpp" />
+    <ClCompile Include="util.cpp" />
     <ClCompile Include="validate.cpp" />
   </ItemGroup>
   <ItemGroup>
